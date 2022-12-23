@@ -12,34 +12,20 @@ import { AppComponent } from './app.component';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
-import { NZ_ICONS, NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
-import {
-  MenuFoldOutline,
-  MenuUnfoldOutline,
-  FormOutline,
-  DashboardOutline
-} from '@ant-design/icons-angular/icons';
+import { IconsProviderModule } from './shared/modules/icons-provider.module'
 
 registerLocaleData(en);
 
 const nzModules = [
   NzBreadCrumbModule,
-  NzIconModule,
   NzLayoutModule,
   NzMenuModule,
   NzSpaceModule,
   NzTypographyModule,
-]
-
-const nzIconsProviders = [
-  MenuFoldOutline,
-  MenuUnfoldOutline,
-  DashboardOutline,
-  FormOutline,
 ]
 
 @NgModule({
@@ -52,11 +38,11 @@ const nzIconsProviders = [
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    IconsProviderModule,
     ...nzModules,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
-    { provide: NZ_ICONS, useValue: nzIconsProviders },
   ],
   bootstrap: [AppComponent]
 })
