@@ -1,0 +1,107 @@
+.app-layout {
+  height: 100vh;
+
+  &,
+  .app-header,
+  .app-inner-layout,
+  .app-inner-layout .app-side-menu,
+  .app-inner-layout .app-side-menu .app-menu,
+  ::ng-deep .app-inner-layout .app-side-menu .app-menu .app-side-sub-menu .ant-menu-sub.ant-menu-inline,
+  .app-inner-layout .app-content {
+    background: transparent !important;
+  }
+
+  .app-header {
+    border-bottom: 1px solid rgba(5, 5, 5, 0.06);
+    font-size: 16px;
+    font-weight: 500;
+
+    .anticon {
+      font-size: 24px;
+      margin-right: 4px;
+    }
+  }
+
+  .app-inner-layout {
+    .app-side-menu {
+      padding: 8px 16px 8px 26px;
+      box-sizing: border-box;
+
+      .app-menu {
+        border: 0;
+
+        .app-side-sub-menu {
+          &.ant-menu-submenu-open {
+            color: #1890ff;
+
+            ::ng-deep .ant-menu-submenu-title {
+              .ant-menu-submenu-arrow {
+                color: #1890ff;
+              }
+            }
+          }
+
+          ::ng-deep .ant-menu-submenu-title {
+            &:hover {
+              background-color: rgba(0, 0, 0, .06);
+              color: rgba(0, 0, 0, .88);
+              border-radius: 8px;
+
+              .ant-menu-submenu-arrow {
+                color: rgba(0, 0, 0, .88);
+              }
+            }
+          }
+
+          .ant-menu-item {
+            &.ant-menu-item-selected {
+              color: #1890ff;
+              background-color: #e6f4ff;
+
+              &::after {
+                border: 0;
+              }
+            }
+
+            &:hover {
+              background-color: rgba(0, 0, 0, .06);
+              color: rgba(0, 0, 0, .88);
+              border-radius: 8px;
+            }
+          }
+        }
+
+        .ant-menu-item {
+          &.ant-menu-item-selected {
+            color: #1890ff;
+            background-color: #e6f4ff;
+            border-radius: 8px;
+
+            &::after {
+              border: 0;
+            }
+          }
+
+          &:hover {
+            background-color: rgba(0, 0, 0, .06);
+            color: rgba(0, 0, 0, .88);
+            border-radius: 8px;
+          }
+        }
+      }
+    }
+
+    .app-content {
+      padding: 24px 32px;
+
+      h1 {
+        margin-top: 18px;
+      }
+
+      .app-content-wrapper {
+        background-color: transparent;
+        flex: 1;
+      }
+    }
+  }
+}
