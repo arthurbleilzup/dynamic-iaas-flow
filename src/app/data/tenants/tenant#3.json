@@ -1,0 +1,370 @@
+{
+  "tenantId": "tenant#3",
+  "settings": {
+    "tenant": {
+      "name": "Iupp",
+      "logoUrl": "https://mercattocomunicacao.com.br/wp-content/uploads/2020/06/iupp-itau-logo.jpg"
+    },
+    "colors": {
+      "header": "#FF7000",
+      "body": "#FF7000",
+      "primary": "#01EEE6",
+      "primaryText": "#21202E",
+      "accent": "#01EEE6",
+      "accentText": "#FFFFFF",
+      "title": "#21202E",
+      "subtitle": "#21202E",
+      "text": "#21202E",
+      "input": {
+        "text": "#4F4F4F",
+        "background": "#FFFFFF",
+        "labelBorder": "#4F4F4F",
+        "hover": {
+          "text": "#21202E",
+          "background": "#FFFFFF"
+        }
+      },
+      "card": {
+        "background": "#FFFFFF",
+        "border": "#E3E3E3"
+      }
+    }
+  },
+  "screens": [
+    {
+      "title": "Início",
+      "stepNumber": 0,
+      "components": [
+        {
+          "type": "title",
+          "properties": {
+            "title": "Vamos começar?",
+            "description": "Por favor informe o CNPJ da empresa da qual é sócio e o seu CPF"
+          },
+          "children": []
+        },
+        {
+          "type": "card",
+          "properties": {},
+          "children": [
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "input",
+                  "properties": {
+                    "label": "CNPJ da sua empresa",
+                    "placeholder": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "input",
+                  "properties": {
+                    "label": "Seu CPF",
+                    "placeholder": ""
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "type": "ok",
+          "title": "Iniciar"
+        }
+      ]
+    },
+    {
+      "title": "Informações da empresa",
+      "stepNumber": 1,
+      "components": [
+        {
+          "type": "title",
+          "properties": {
+            "title": "Por favor, confirme se as informações sobre a empresa estão atualizadas",
+            "description": ""
+          },
+          "children": []
+        },
+        {
+          "type": "card",
+          "properties": {},
+          "children": [
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "column",
+                  "properties": {},
+                  "children": [
+                    {
+                      "type": "info",
+                      "properties": {
+                        "label": "CNPJ:",
+                        "text": "000.000.000/0001-00"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "column",
+                  "properties": {},
+                  "children": [
+                    {
+                      "type": "info",
+                      "properties": {
+                        "label": "CEP:",
+                        "text": "00000-000"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "column",
+                  "properties": {},
+                  "children": [
+                    {
+                      "type": "info",
+                      "properties": {
+                        "label": "Razão social:",
+                        "text": "Teste consulta JRF"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "column",
+                  "properties": {},
+                  "children": [
+                    {
+                      "type": "info",
+                      "properties": {
+                        "label": "Endereço:",
+                        "text": "Olga Silveira Campo, 12 - Jd Brasilia, Barueri"
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "column",
+                  "properties": {},
+                  "children": [
+                    {
+                      "type": "info",
+                      "properties": {
+                        "label": "Atividade principal:",
+                        "text": "2148 - Atividades econômicas"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "column",
+                  "properties": {},
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "type": "ok",
+          "title": "Confirmar dados"
+        }
+      ]
+    },
+    {
+      "title": "Financeiro",
+      "stepNumber": 2,
+      "components": [
+        {
+          "type": "title",
+          "properties": {
+            "title": "Qual o faturamento anual da sua empresa?",
+            "description": ""
+          },
+          "children": []
+        },
+        {
+          "type": "card",
+          "properties": {},
+          "children": [
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "input",
+                  "properties": {
+                    "label": "CNPJ da sua empresa",
+                    "placeholder": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "checkbox",
+                  "properties": {
+                    "checked": false,
+                    "text": "empresa sem faturamento (recém constituída)",
+                    "hint": "You can define hints for it as well"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "type": "ok",
+          "title": "Continuar"
+        }
+      ]
+    },
+    {
+      "title": "Conta destino",
+      "stepNumber": 3,
+      "components": [
+        {
+          "type": "title",
+          "properties": {
+            "title": "Por favor informe os dados da conta destino",
+            "description": "A conta de destino deve ser uma conta-corrente de mesma titularidade da conta pagamento."
+          },
+          "children": []
+        },
+        {
+          "type": "card",
+          "properties": {},
+          "children": [
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "column",
+                  "properties": {},
+                  "children": [
+                    {
+                      "type": "input",
+                      "properties": {
+                        "label": "Banco",
+                        "placeholder": "Selecione o banco"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "column",
+                  "properties": {},
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "column",
+                  "properties": {},
+                  "children": [
+                    {
+                      "type": "input",
+                      "properties": {
+                        "label": "Agência",
+                        "placeholder": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "column",
+                  "properties": {},
+                  "children": [
+                    {
+                      "type": "input",
+                      "properties": {
+                        "label": "Conta",
+                        "placeholder": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "checkbox",
+                  "properties": {
+                    "checked": false,
+                    "text": "confirmo que a conta destino informada possui a mesma titularidade (CNPJ) da conta pagamento",
+                    "hint": ""
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "type": "ok",
+          "title": "Continuar"
+        }
+      ]
+    }
+  ]
+}

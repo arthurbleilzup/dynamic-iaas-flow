@@ -36,18 +36,100 @@
         .fields-wrapper {
           width: 100%;
           display: grid;
-          grid-template-columns: 1fr 80px 1fr;
-          gap: 32px;
+          grid-template-columns: 1fr 48px 1fr;
+          gap: 24px;
+
+          div {
+            .components-spacer {
+              width: 100%;
+            }
+
+            ::ng-deep .ant-tree-node-selected {
+              background-color: #e6f4ff;
+              color: #1890ff;
+              border-radius: 4px;
+
+              .node-title {
+                color: #1890ff;
+                transition: color 0.2s ease;
+              }
+            }
+
+            .component-node {
+              width: 100%;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+
+              .main-value {
+                font-size: 11px;
+                padding: 0;
+                margin: 0;
+                max-width: 150px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+
+              .component-node-operations {
+                visibility: hidden;
+                display: flex;
+                align-items: center;
+              }
+
+              &:hover {
+                .component-node-operations {
+                  visibility: visible;
+                }
+              }
+            }
+          }
+
+          .properties-divider {
+            position: relative;
+
+            &::before {
+              content: '';
+              width: 1px;
+              height: 100%;
+              position: absolute;
+              left: calc(50% - 1px);
+              background-color: #f0f0f0;
+            }
+
+            .properties-description {
+              position: absolute;
+              background-color: #ffffff;
+              top: 50%;
+              left: 50%;
+              transform: translate3d(-50%, -50%, 0);
+              padding: 12px;
+              box-sizing: border-box;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+
+              .anticon {
+                font-size: 20px;
+                color: rgba(0, 0, 0, .2);
+              }
+            }
+          }
         }
       }
 
       .builder-smartphone {
+        box-sizing: border-box;
+        padding: 4px 0 0 0;
         background-color: transparent;
 
         ::ng-deep .ant-layout-sider-children {
           background-color: transparent;
           flex: 1;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
 
@@ -137,6 +219,10 @@
               overflow: auto;
             }
           }
+        }
+
+        .preview-description {
+          margin-top: 24px;
         }
       }
     }

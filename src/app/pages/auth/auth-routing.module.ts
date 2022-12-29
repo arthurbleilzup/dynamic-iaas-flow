@@ -7,7 +7,7 @@ import { ThemeComponent } from './theme/theme.component'
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'builder' },
-  { path: 'builder', component: BuilderComponent },
+  { path: 'builder', loadChildren: () => import('./builder/builder.module').then(m => m.BuilderModule) },
   { path: 'home', component: HomeComponent },
   { path: 'tenant-data', component: TenantDataComponent },
   { path: 'theme', component: ThemeComponent },

@@ -1,56 +1,11 @@
 <nz-layout class="builder-layout">
   <nz-sider nzWidth="320px" class="builder-screens">
     <nz-card nzTitle="Screens" [nzExtra]="screensExtra">
-      <nz-list>
-        <nz-list-item>
+      <nz-list *ngIf="dataService && dataService.currentTenantData && dataService.currentTenantData.screens">
+        <nz-list-item *ngFor="let screen of dataService.currentTenantData.screens; index as i;">
           <ng-container>
-            <nz-list-item-meta nzDescription="Passo 1">
-              <nz-list-item-meta-title>Screen 1</nz-list-item-meta-title>
-            </nz-list-item-meta>
-            <ul nz-list-item-actions>
-              <nz-list-item-action>
-                <button nz-button nzType="link" nzSize="small"><span nz-icon nzType="edit"></span></button>
-              </nz-list-item-action>
-              <nz-list-item-action>
-                <button nz-button nzType="link" nzSize="small"><span nz-icon nzType="delete"></span></button>
-              </nz-list-item-action>
-            </ul>
-          </ng-container>
-        </nz-list-item>
-        <nz-list-item>
-          <ng-container>
-            <nz-list-item-meta nzDescription="Passo 2">
-              <nz-list-item-meta-title>Screen 2</nz-list-item-meta-title>
-            </nz-list-item-meta>
-            <ul nz-list-item-actions>
-              <nz-list-item-action>
-                <button nz-button nzType="link" nzSize="small"><span nz-icon nzType="edit"></span></button>
-              </nz-list-item-action>
-              <nz-list-item-action>
-                <button nz-button nzType="link" nzSize="small"><span nz-icon nzType="delete"></span></button>
-              </nz-list-item-action>
-            </ul>
-          </ng-container>
-        </nz-list-item>
-        <nz-list-item>
-          <ng-container>
-            <nz-list-item-meta nzDescription="Passo 3">
-              <nz-list-item-meta-title>Screen 3</nz-list-item-meta-title>
-            </nz-list-item-meta>
-            <ul nz-list-item-actions>
-              <nz-list-item-action>
-                <button nz-button nzType="link" nzSize="small"><span nz-icon nzType="edit"></span></button>
-              </nz-list-item-action>
-              <nz-list-item-action>
-                <button nz-button nzType="link" nzSize="small"><span nz-icon nzType="delete"></span></button>
-              </nz-list-item-action>
-            </ul>
-          </ng-container>
-        </nz-list-item>
-        <nz-list-item>
-          <ng-container>
-            <nz-list-item-meta nzDescription="Passo 4">
-              <nz-list-item-meta-title>Screen 4</nz-list-item-meta-title>
+            <nz-list-item-meta [nzDescription]="'Passo ' + (i + 1)">
+              <nz-list-item-meta-title>{{ screen.title }}</nz-list-item-meta-title>
             </nz-list-item-meta>
             <ul nz-list-item-actions>
               <nz-list-item-action>
@@ -65,7 +20,7 @@
       </nz-list>
     </nz-card>
     <ng-template #screensExtra>
-      <button nz-button nzType="primary" nzSize="small" nzShape="round">
+      <button nz-button nzType="link" nzSize="small" nzShape="round">
         <span nz-icon nzType="plus"></span>
         Add screen
       </button>
@@ -74,29 +29,47 @@
   <nz-content class="builder-screens-content">
     <nz-layout class="builder-screens-content-layout">
       <nz-content class="builder-fields">
-        <nz-card nzTitle="Editing: Screen 1" style="width: 100%;" [nzExtra]="editExtra">
+        <nz-card nzTitle="Editing: {{ currentScreen?.title }}" style="width: 100%;" [nzExtra]="editExtra">
           <section class="fields-wrapper">
             <div>
-              <h5 nz-typography>Components Tree</h5>
-              <p>ABC</p>
-              <p>ABC</p>
-              <p>ABC</p>
-              <p>ABC</p>
-              <p>ABC</p>
-              <p>ABC</p>
-              <p>ABC</p>
-              <p>ABC</p>
-              <p>ABC</p>
-              <p>ABC</p>
-              <p>ABC</p>
-            </div>
-            <div>
-              <nz-divider nzType="vertical" [nzText]="text">
-                <ng-template #text>
-                  <span>Properties</span>
-                  <span nz-icon nzType="right"></span>
+
+              <nz-space nzDirection="vertical" nzSize="middle" class="components-spacer">
+                <nz-input-group *nzSpaceItem [nzSuffix]="suffixIcon">
+                  <input type="text" nz-input placeholder="Search a component" [(ngModel)]="searchComponentValue" />
+                </nz-input-group>
+                <ng-template #suffixIcon>
+                  <span nz-icon nzType="search"></span>
                 </ng-template>
-              </nz-divider>
+                <nz-tree *nzSpaceItem nzBlockNode [nzData]="componentNodes" [nzTreeTemplate]="componentNodeTemplate"></nz-tree>
+                <ng-template #componentNodeTemplate let-node let-origin="origin">
+                  <span class="component-node">
+                    <nz-space nzSize="small">
+                      <span *nzSpaceItem nz-icon [nzType]="node.icon"></span>
+                      <span *nzSpaceItem nz-typography class="node-title">{{ node.title }}</span>
+                      <ng-container *ngIf="origin.mainValue">
+                        <p *nzSpaceItem nz-typography nzType="secondary" class="main-value">{{ origin.mainValue }}</p>
+                      </ng-container>
+                    </nz-space>
+                    <nz-space nzSize="small" class="component-node-operations">
+                      <ng-container *ngIf="origin.canHaveChildren">
+                        <button *nzSpaceItem nz-button nzType="link" nzSize="small" nz-tooltip nzTooltipTitle="Add children">
+                          <span nz-icon nzType="plus-square"></span>
+                        </button>
+                      </ng-container>
+                      <button *nzSpaceItem nz-button nzType="link" nzSize="small" nzDanger nz-tooltip nzTooltipTitle="Delete component">
+                        <span nz-icon nzType="delete"></span>
+                      </button>
+                    </nz-space>
+                  </span>
+                </ng-template>
+              </nz-space>
+
+
+            </div>
+            <div class="properties-divider">
+              <div class="properties-description">
+                <span nz-icon nzType="double-right" nzTheme="outline"></span>
+              </div>
             </div>
             <div>
               <h5 nz-typography>Component Properties</h5>
@@ -122,6 +95,7 @@
           <div class="current-screen-content">
           </div>
         </div>
+        <span nz-typography nzType="secondary" class="preview-description">Preview: {{ currentScreen?.title }}</span>
       </nz-sider>
     </nz-layout>
   </nz-content>

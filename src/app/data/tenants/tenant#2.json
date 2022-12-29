@@ -1,0 +1,444 @@
+{
+  "tenantId": "tenant#2",
+  "settings": {
+    "tenant": {
+      "name": "Players Bank",
+      "logoUrl": "https://playersbank.com.br/img/header/logo_playersbank.png"
+    },
+    "colors": {
+      "header": "#22202C",
+      "body": "#22202C",
+      "primary": "#FA7A56",
+      "primaryText": "#22202C",
+      "accent": "#FF3900",
+      "accentText": "#FFFFFF",
+      "title": "#FFFFFF",
+      "subtitle": "#757681",
+      "text": "#FFFFFF",
+      "input": {
+        "text": "#FFFFFF",
+        "background": "#22202C",
+        "labelBorder": "#FA7A56",
+        "hover": {
+          "text": "#FFFFFF",
+          "background": "#22202C"
+        }
+      },
+      "card": {
+        "background": "#33343C",
+        "border": "#33343C"
+      }
+    }
+  },
+  "screens": [
+    {
+      "title": "Você",
+      "stepNumber": 0,
+      "components": [
+        {
+          "type": "title",
+          "properties": {
+            "title": "Queremos conhecer você",
+            "description": "Por favor selecione os jogos que você mais joga"
+          },
+          "children": []
+        },
+        {
+          "type": "card",
+          "properties": {},
+          "children": [
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "checkbox",
+                  "properties": {
+                    "checked": false,
+                    "text": "Counter-Strike: Global Offensive",
+                    "hint": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "checkbox",
+                  "properties": {
+                    "checked": false,
+                    "text": "League of Legends",
+                    "hint": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "checkbox",
+                  "properties": {
+                    "checked": false,
+                    "text": "VALORANT",
+                    "hint": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "checkbox",
+                  "properties": {
+                    "checked": false,
+                    "text": "Overwatch",
+                    "hint": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "checkbox",
+                  "properties": {
+                    "checked": false,
+                    "text": "Call of Duty: Warzone",
+                    "hint": ""
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "type": "ok",
+          "title": "Continuar"
+        }
+      ]
+    },
+    {
+      "title": "Joga Junto",
+      "stepNumber": 1,
+      "components": [
+        {
+          "type": "title",
+          "properties": {
+            "title": "Aqui a gente joga junto",
+            "description": "Quais dos times abaixo você suporta?"
+          },
+          "children": []
+        },
+        {
+          "type": "card",
+          "properties": {},
+          "children": [
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "checkbox",
+                  "properties": {
+                    "checked": false,
+                    "text": "LOUD",
+                    "hint": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "checkbox",
+                  "properties": {
+                    "checked": false,
+                    "text": "HERO BASE",
+                    "hint": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "checkbox",
+                  "properties": {
+                    "checked": false,
+                    "text": "MIBR",
+                    "hint": ""
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "type": "ok",
+          "title": "Continuar"
+        }
+      ]
+    },
+    {
+      "title": "Abrir Conta",
+      "stepNumber": 2,
+      "components": [
+        {
+          "type": "title",
+          "properties": {
+            "title": "Agora falta pouco!",
+            "description": "Para concluir a abertura de sua conta, precisamos de seus dados."
+          },
+          "children": []
+        },
+        {
+          "type": "card",
+          "properties": {},
+          "children": [
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "label",
+                  "properties": {
+                    "text": "Dados básicos"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "input",
+                  "properties": {
+                    "label": "Nome completo",
+                    "placeholder": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "input",
+                  "properties": {
+                    "label": "Data de nascimento",
+                    "placeholder": "ex: 01/01/1990"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "input",
+                  "properties": {
+                    "label": "CPF",
+                    "placeholder": "000.000.000-00"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "input",
+                  "properties": {
+                    "label": "Telefone",
+                    "placeholder": "(00) 00000-0000"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "properties": {},
+          "children": [
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "label",
+                  "properties": {
+                    "text": "Endereço"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "input",
+                  "properties": {
+                    "label": "Endereço (sem número)",
+                    "placeholder": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "column",
+                  "properties": {},
+                  "children": [
+                    {
+                      "type": "input",
+                      "properties": {
+                        "label": "Número",
+                        "placeholder": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "column",
+                  "properties": {},
+                  "children": [
+                    {
+                      "type": "input",
+                      "properties": {
+                        "label": "Complemento",
+                        "placeholder": ""
+                      },
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "input",
+                  "properties": {
+                    "label": "Bairro",
+                    "placeholder": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "input",
+                  "properties": {
+                    "label": "Cidade",
+                    "placeholder": ""
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "input",
+                  "properties": {
+                    "label": "Estado",
+                    "placeholder": ""
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "properties": {},
+          "children": [
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "label",
+                  "properties": {
+                    "text": "Financeiro"
+                  },
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "properties": {},
+              "children": [
+                {
+                  "type": "input",
+                  "properties": {
+                    "label": "Qual sua renda mensal?",
+                    "placeholder": "R$"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "type": "ok",
+          "title": "Abrir minha conta"
+        }
+      ]
+    }
+  ]
+}
