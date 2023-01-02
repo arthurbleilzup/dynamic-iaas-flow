@@ -1,1 +1,25 @@
-<p>screens-list works!</p>
+<nz-card nzTitle="Screens" [nzExtra]="screensExtra">
+  <nz-list *ngIf="screens && screens.length">
+    <nz-list-item *ngFor="let screen of screens; index as i;">
+      <ng-container>
+        <nz-list-item-meta [nzDescription]="'Passo ' + (i + 1)">
+          <nz-list-item-meta-title>{{ screen.title }}</nz-list-item-meta-title>
+        </nz-list-item-meta>
+        <ul nz-list-item-actions>
+          <nz-list-item-action>
+            <button nz-button nzType="link" nzSize="small"><span nz-icon nzType="edit"></span></button>
+          </nz-list-item-action>
+          <nz-list-item-action>
+            <button nz-button nzType="link" nzSize="small"><span nz-icon nzType="delete"></span></button>
+          </nz-list-item-action>
+        </ul>
+      </ng-container>
+    </nz-list-item>
+  </nz-list>
+</nz-card>
+<ng-template #screensExtra>
+  <button nz-button nzType="link" nzSize="small" nzShape="round">
+    <span nz-icon nzType="plus"></span>
+    Add screen
+  </button>
+</ng-template>

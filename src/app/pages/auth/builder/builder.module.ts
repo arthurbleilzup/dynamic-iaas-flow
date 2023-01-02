@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BuilderComponent } from './builder.component'
-import { BuilderRoutingModule } from './builder-routing.module'
 import { FormsModule } from '@angular/forms'
 import { CdkTreeModule } from '@angular/cdk/tree'
+
 import { IconsProviderModule } from 'src/app/shared/modules/icons-provider.module'
 import { NzButtonModule } from 'ng-zorro-antd/button'
 import { NzCardModule } from 'ng-zorro-antd/card'
 import { NzDividerModule } from 'ng-zorro-antd/divider'
+import { NzEmptyModule } from 'ng-zorro-antd/empty'
 import { NzInputModule } from 'ng-zorro-antd/input'
 import { NzLayoutModule } from 'ng-zorro-antd/layout'
 import { NzListModule } from 'ng-zorro-antd/list'
@@ -16,7 +16,10 @@ import { NzSpaceModule } from 'ng-zorro-antd/space'
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip'
 import { NzTreeModule } from 'ng-zorro-antd/tree'
 import { NzTypographyModule } from 'ng-zorro-antd/typography'
+
 import { DataService } from '../shared/services/data/data.service'
+import { BuilderComponent } from './builder.component'
+import { BuilderRoutingModule } from './builder-routing.module'
 import { ComponentPropertiesComponent } from './components/component-properties/component-properties.component'
 import { ComponentsTreeComponent } from './components/components-tree/components-tree.component'
 import { ScreensListComponent } from './components/screens-list/screens-list.component'
@@ -32,6 +35,7 @@ const nzModules = [
   NzButtonModule,
   NzCardModule,
   NzDividerModule,
+  NzEmptyModule,
   NzInputModule,
   NzLayoutModule,
   NzListModule,

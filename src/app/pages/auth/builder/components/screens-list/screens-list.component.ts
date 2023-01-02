@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core'
+import { Screen } from 'src/app/models/screen'
 
 @Component({
   selector: 'app-screens-list',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./screens-list.component.scss']
 })
 export class ScreensListComponent {
-
+  @Input() public screens: Screen[] = []
 }

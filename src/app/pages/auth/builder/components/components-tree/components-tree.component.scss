@@ -1,0 +1,44 @@
+.components-spacer {
+  width: 100%;
+}
+
+::ng-deep .ant-tree-node-selected {
+  background-color: #e6f4ff;
+  color: #1890ff;
+  border-radius: 4px;
+
+  .node-title {
+    color: #1890ff;
+    transition: color 0.2s ease;
+  }
+}
+
+.component-node {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .main-value {
+    font-size: 11px;
+    padding: 0;
+    margin: 0;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .component-node-operations {
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  &:hover {
+    .component-node-operations {
+      visibility: visible;
+    }
+  }
+}
