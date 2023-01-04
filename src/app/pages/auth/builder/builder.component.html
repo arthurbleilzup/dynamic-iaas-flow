@@ -11,7 +11,7 @@
           <section class="fields-wrapper">
             <div>
               <ng-container *ngIf="currentScreen && currentScreen.components && currentScreen.components.length">
-                <app-components-tree [screenComponents]="currentScreen.components"></app-components-tree>
+                <app-components-tree [screenComponents]="currentScreen.components" (onComponentClick)="onComponentClick($event)"></app-components-tree>
               </ng-container>
             </div>
             <div class="properties-divider">
@@ -20,7 +20,7 @@
               </div>
             </div>
             <div>
-              <h5 nz-typography>Component Properties</h5>
+              <app-component-properties [selectedComponent]="screenSelectedComponent"></app-component-properties>
             </div>
           </section>
         </nz-card>

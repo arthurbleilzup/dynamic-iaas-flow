@@ -5,7 +5,7 @@
   <ng-template #suffixIcon>
     <span nz-icon nzType="search"></span>
   </ng-template>
-  <nz-tree *nzSpaceItem nzBlockNode [nzData]="componentNodes" [nzTreeTemplate]="componentNodeTemplate"></nz-tree>
+  <nz-tree *nzSpaceItem nzBlockNode (nzClick)="activeNode($event)" [nzData]="componentNodes" [nzTreeTemplate]="componentNodeTemplate"></nz-tree>
   <ng-template #componentNodeTemplate let-node let-origin="origin">
     <span class="component-node">
       <nz-space nzSize="small">

@@ -1,1 +1,30 @@
-<p>component-properties works!</p>
+<ng-container *ngIf="selectedComponent">
+  <div *ngIf="componentHasProperties">
+    <h5 nz-typography>{{ selectedComponent.info.title }} Properties</h5>
+    <br>
+    <ng-container *ngIf="selectedComponent && selectedComponent.properties">
+      <form nz-form nzLayout="vertical">
+        <nz-form-item *ngFor="let p of (selectedComponent.info.properties ?? [])">
+          <nz-form-label [nzFor]="p.valueProp">{{ p.text }}</nz-form-label>
+          <nz-form-control>
+            <input nz-input [name]="p.valueProp" type="text" [ngModel]="selectedComponent.properties[p.valueProp]">
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </ng-container>
+  </div>
+  <div *ngIf="!componentHasProperties" class="empty-properties-wrapper">
+    <nz-empty nzNotFoundImage="simple" [nzNotFoundContent]="messageTpl"></nz-empty>
+    <ng-template #messageTpl>
+      <span>The {{ selectedComponent.info.title }} component does not have any customizable properties.</span>
+    </ng-template>
+  </div>
+</ng-container>
+<ng-container *ngIf="!selectedComponent">
+  <div class="empty-properties-wrapper">
+    <nz-empty [nzNotFoundContent]="messageTpl"></nz-empty>
+    <ng-template #messageTpl>
+      <span>Select a component on the tree.</span>
+    </ng-template>
+  </div>
+</ng-container>

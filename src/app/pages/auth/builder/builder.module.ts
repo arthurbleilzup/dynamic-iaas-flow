@@ -8,6 +8,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button'
 import { NzCardModule } from 'ng-zorro-antd/card'
 import { NzDividerModule } from 'ng-zorro-antd/divider'
 import { NzEmptyModule } from 'ng-zorro-antd/empty'
+import { NzFormModule } from 'ng-zorro-antd/form'
 import { NzInputModule } from 'ng-zorro-antd/input'
 import { NzLayoutModule } from 'ng-zorro-antd/layout'
 import { NzListModule } from 'ng-zorro-antd/list'
@@ -36,6 +37,7 @@ const nzModules = [
   NzCardModule,
   NzDividerModule,
   NzEmptyModule,
+  NzFormModule,
   NzInputModule,
   NzLayoutModule,
   NzListModule,

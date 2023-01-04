@@ -1,7 +1,12 @@
-import { Component, Input } from '@angular/core';
-import { NzTreeNodeOptions } from 'ng-zorro-antd/tree'
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { NzFormatEmitEvent, NzTreeNodeOptions } from 'ng-zorro-antd/tree'
 import { Screen } from 'src/app/models/screen'
 import { ComponentInfo, componentsInfo } from '../../settings/components'
+
+export interface ComponentClickEvent {
+  info: ComponentInfo,
+  properties?: Record<string, any>,
+}
 
 @Component({
   selector: 'app-components-tree',
@@ -22,6 +27,8 @@ export class ComponentsTreeComponent {
     this._screenComponents = components ?? []
     this.componentNodes = this.getComponentTreeAsNzNodes(components ?? [], '')
   }
+
+  @Output() public onComponentClick: EventEmitter<ComponentClickEvent> = new EventEmitter<ComponentClickEvent>()
 
   private getComponentInfo = (type: string): ComponentInfo => componentsInfo.find(ci => ci.type === type)!
 
@@ -46,7 +53,7 @@ export class ComponentsTreeComponent {
           ...(info.mainValueProp ? {
             mainValue: properties[info.mainValueProp],
           } : {}),
-          info: info,
+          info,
         },
         ...(info.canHaveChildren ? {
           isLeaf: false,
@@ -55,4 +62,11 @@ export class ComponentsTreeComponent {
         } : {}),
       }
     })
+
+    public activeNode(event: NzFormatEmitEvent): void {
+      this.onComponentClick.emit({
+        info: event.node?.origin['component'].info,
+        properties: event.node?.origin['component'].properties,
+      })
+    }
 }
