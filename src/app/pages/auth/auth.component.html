@@ -1,7 +1,18 @@
 <nz-layout class="app-layout">
   <nz-header class="app-header">
-    <span nz-icon nzType="build" nzTheme="twotone"></span>
-    IaaS Flow Builder
+    <div class="logo-wrapper">
+      <span nz-icon nzType="build" nzTheme="twotone"></span>
+      <span>IaaS Flow Builder</span>
+    </div>
+    <div class="user-wrapper" nz-dropdown [nzDropdownMenu]="userMenu">
+      <nz-avatar nzIcon="user"></nz-avatar>
+      <span class="username" nz-typography nzType="secondary">Arthur Bleil</span>
+    </div>
+    <nz-dropdown-menu #userMenu="nzDropdownMenu">
+      <ul nz-menu nzSelectable>
+        <li nz-menu-item>Log out</li>
+      </ul>
+    </nz-dropdown-menu>
   </nz-header>
   <nz-layout class="app-inner-layout">
     <nz-sider class="app-side-menu" nzTheme="light" nzWidth="260px">

@@ -15,10 +15,27 @@
     border-bottom: 1px solid rgba(5, 5, 5, 0.06);
     font-size: 16px;
     font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    .anticon {
-      font-size: 24px;
-      margin-right: 4px;
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+
+      .anticon {
+        font-size: 30px;
+        margin-right: 8px;
+      }
+    }
+
+    .user-wrapper {
+      display: flex;
+      align-items: center;
+
+      .username {
+        margin-left: 8px;
+      }
     }
   }
 
