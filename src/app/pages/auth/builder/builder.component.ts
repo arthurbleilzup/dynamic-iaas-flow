@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core'
 import { NzTreeNodeOptions } from 'ng-zorro-antd/tree'
 import { Screen } from 'src/app/models/screen'
 import { DataService } from '../shared/services/data/data.service'
@@ -15,14 +15,21 @@ export class BuilderComponent implements OnInit {
   public componentNodes: NzTreeNodeOptions[] = []
   public screenSelectedComponent?: ComponentClickEvent
 
-  constructor(public dataService: DataService) {
+  constructor(
+    public dataService: DataService,
+    public changeDetector: ChangeDetectorRef,
+  ) {
   }
 
   public ngOnInit(): void {
-    this.currentScreen = this.dataService.currentTenantData.screens[1]
+    this.changeDetector.detectChanges()
   }
 
   public onComponentClick(component: ComponentClickEvent): void {
     this.screenSelectedComponent = component
+  }
+
+  public screenSelectedChanged(screen: Screen): void {
+    this.currentScreen = screen
   }
 }

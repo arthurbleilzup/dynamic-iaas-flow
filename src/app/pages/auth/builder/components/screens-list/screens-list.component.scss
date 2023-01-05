@@ -1,0 +1,7 @@
+::ng-deep .screen-title {
+  &.selected {
+    .ant-list-item-meta-title {
+      color: #1890ff;
+    }
+  }
+}
