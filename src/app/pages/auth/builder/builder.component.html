@@ -1,8 +1,7 @@
 <nz-layout class="builder-layout">
   <nz-sider nzWidth="320px" class="builder-screens">
     <ng-container *ngIf="dataService && dataService.currentTenantData && dataService.currentTenantData.screens && dataService.currentTenantData.screens.length">
-      <app-screens-list
-                        (screenSelectedChanged)="screenSelectedChanged($event)"
+      <app-screens-list (screenSelectedChanged)="screenSelectedChanged($event)"
                         [screens]="dataService.currentTenantData.screens">
       </app-screens-list>
     </ng-container>

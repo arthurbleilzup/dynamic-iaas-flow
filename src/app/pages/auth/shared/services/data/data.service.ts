@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Tenant } from 'src/app/models/tenant'
 import { JsonUtils } from 'src/app/models/json'
 import * as Ts from '../../../../../data/tenants.json'
@@ -20,6 +20,8 @@ export class DataService {
 
   public tenants: Tenant[] = (Ts as unknown as JsonUtils.Data<Tenant[]>).default.data
   public currentTenantData: Tenant.Data = this.tenantsData[0]
+
+  public onTenantChange: EventEmitter<string> = new EventEmitter<string>()
 
   public setCurrentTenantData(tenant: Tenant): void {
     this.currentTenantData = this.tenantsData.find(t => t.tenantId === tenant.id)!

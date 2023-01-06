@@ -19,13 +19,21 @@
     justify-content: space-between;
     align-items: center;
 
-    .logo-wrapper {
+    .logo-tenant-wrapper {
       display: flex;
       align-items: center;
 
       .anticon {
         font-size: 30px;
         margin-right: 8px;
+      }
+
+      .tenant-label {
+        margin: 0 8px 0 75px;
+      }
+
+      .tenant-select {
+        width: 25vw;
       }
     }
 

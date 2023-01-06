@@ -1,8 +1,16 @@
 <nz-layout class="app-layout">
   <nz-header class="app-header">
-    <div class="logo-wrapper">
+    <div class="logo-tenant-wrapper">
       <span nz-icon nzType="build" nzTheme="twotone"></span>
       <span>IaaS Flow Builder</span>
+      <span nz-typography nzType="secondary" class="tenant-label">Tenant:</span>
+      <nz-select nzShowSearch
+                 class="tenant-select"
+                 nzPlaceHolder="Select a tenant"
+                 [(ngModel)]="selectedTenant"
+                 (ngModelChange)="dataService.setCurrentTenantData($event)">
+        <nz-option *ngFor="let tenant of dataService.tenants" [nzLabel]="tenant.name" [nzValue]="tenant"></nz-option>
+      </nz-select>
     </div>
     <div class="user-wrapper" nz-dropdown [nzDropdownMenu]="userMenu">
       <nz-avatar nzIcon="user"></nz-avatar>
@@ -10,6 +18,7 @@
     </div>
     <nz-dropdown-menu #userMenu="nzDropdownMenu">
       <ul nz-menu nzSelectable>
+        <li nz-menu-item>Settings</li>
         <li nz-menu-item>Log out</li>
       </ul>
     </nz-dropdown-menu>

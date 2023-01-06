@@ -17,6 +17,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { IconsProviderModule } from './shared/modules/icons-provider.module'
+import { SharedModule } from './pages/auth/shared/shared.module'
 
 registerLocaleData(en);
 
@@ -39,6 +40,7 @@ const nzModules = [
     HttpClientModule,
     BrowserAnimationsModule,
     IconsProviderModule,
+    SharedModule.forRoot(),
     ...nzModules,
   ],
   providers: [

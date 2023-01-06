@@ -18,7 +18,6 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip'
 import { NzTreeModule } from 'ng-zorro-antd/tree'
 import { NzTypographyModule } from 'ng-zorro-antd/typography'
 
-import { DataService } from '../shared/services/data/data.service'
 import { BuilderComponent } from './builder.component'
 import { BuilderRoutingModule } from './builder-routing.module'
 import { ComponentPropertiesComponent } from './components/component-properties/component-properties.component'
@@ -49,7 +48,7 @@ const nzModules = [
 ]
 
 const builderModules = [
-  BuilderRoutingModule
+  BuilderRoutingModule,
 ]
 
 const builderComponents = [
@@ -67,8 +66,5 @@ const builderComponents = [
     ...builderModules,
     ...nzModules,
   ],
-  providers: [
-    DataService,
-  ]
 })
 export class BuilderModule { }
