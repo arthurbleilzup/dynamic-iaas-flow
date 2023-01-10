@@ -1,7 +1,14 @@
 :host {
-  flex: 1;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
+}
+
+.full-width {
+  width: 100%;
 }
 
 .builder-layout {
@@ -9,64 +16,98 @@
   background-color: transparent;
 
   .builder-screens {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
     background-color: transparent;
-    flex: 1;
   }
 
   .builder-screens-content {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
     background-color: transparent;
-    flex: 1;
+    overflow: hidden;
     display: flex;
+    overflow: hidden;
 
     .builder-screens-content-layout {
+      width: 100%;
+      height: 100%;
+      max-height: 100%;
       background-color: transparent;
-      flex: 1;
       display: flex;
 
       .builder-fields {
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        background-color: transparent;
         padding-left: 16px;
         box-sizing: border-box;
-        background-color: transparent;
-        flex: 1;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-items: flex-start;
 
-        .fields-wrapper {
+        .edit-card {
           width: 100%;
-          display: grid;
-          grid-template-columns: 1fr 48px 1fr;
-          gap: 24px;
+          background-color: #ffffff;
+          max-height: 100%;
+          overflow: hidden;
 
-          .properties-divider {
-            position: relative;
+          ::ng-deep .ant-card-body {
+            width: 100%;
+            max-height: calc(100% - 48px);
+            overflow: hidden;
+            display: flex;
 
-            &::before {
-              content: '';
-              width: 1px;
-              height: 100%;
-              position: absolute;
-              left: calc(50% - 1px);
-              background-color: #f0f0f0;
-            }
+            .fields-wrapper {
+              width: 100%;
+              display: grid;
+              grid-template-columns: 1fr 24px 1fr;
+              gap: 8px;
 
-            .properties-description {
-              position: absolute;
-              background-color: #ffffff;
-              top: 50%;
-              left: 50%;
-              transform: translate3d(-50%, -50%, 0);
-              padding: 12px;
-              box-sizing: border-box;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
+              .current-screen-component {
+                max-height: 100%;
+                overflow: auto;
+              }
 
-              .anticon {
-                font-size: 20px;
-                color: rgba(0, 0, 0, .2);
+              .first-title-divider {
+                margin-top: 0;
+              }
+
+              .properties-divider {
+                position: relative;
+
+                &::before {
+                  content: '';
+                  width: 1px;
+                  height: 100%;
+                  position: absolute;
+                  left: calc(50% - 1px);
+                  background-color: #f0f0f0;
+                }
+
+                .properties-description {
+                  position: absolute;
+                  background-color: #ffffff;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate3d(-50%, -50%, 0);
+                  padding: 12px;
+                  box-sizing: border-box;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+
+                  .anticon {
+                    font-size: 20px;
+                    color: rgba(0, 0, 0, .2);
+                  }
+                }
               }
             }
           }
@@ -79,16 +120,19 @@
         background-color: transparent;
 
         ::ng-deep .ant-layout-sider-children {
+          width: 100%;
+          height: 100%;
+          max-height: 100%;
           background-color: transparent;
-          flex: 1;
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
 
           .smartphone-frame {
-            width: 323px;
-            height: 700px;
+            width: 305px;
+            height: 660px;
+            margin: 16px 0 8px 0;
             position: relative;
             background-color: var(--flow-body);
             border-radius: 40px;

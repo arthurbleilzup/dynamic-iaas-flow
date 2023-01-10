@@ -10,14 +10,15 @@
     <ng-container *ngIf="currentScreen">
       <nz-layout class="builder-screens-content-layout">
         <nz-content class="builder-fields">
-          <nz-card nzTitle="Editing: {{ currentScreen.title }}" style="width: 100%;" [nzExtra]="editExtra">
+          <nz-card nzTitle="Editing: {{ currentScreen.title }}" class="full-width" [nzExtra]="editExtra" [classList]="['edit-card']">
             <section class="fields-wrapper">
-              <div>
+              <div class="current-screen-component">
                 <ng-container *ngIf="currentScreen && currentScreen.components && currentScreen.components.length">
-                  <app-components-tree
-                                       [screenComponents]="currentScreen.components"
+                  <nz-divider class="first-title-divider" nzText="Components"></nz-divider>
+                  <app-components-tree [screenComponents]="currentScreen.components"
                                        (onComponentClick)="onComponentClick($event)">
                   </app-components-tree>
+                  <nz-divider nzText="Operations"></nz-divider>
                 </ng-container>
               </div>
               <div class="properties-divider">
