@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { CdkTreeModule } from '@angular/cdk/tree'
 
 import { IconsProviderModule } from 'src/app/shared/modules/icons-provider.module'
 import { NzButtonModule } from 'ng-zorro-antd/button'
 import { NzCardModule } from 'ng-zorro-antd/card'
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox'
 import { NzDividerModule } from 'ng-zorro-antd/divider'
 import { NzEmptyModule } from 'ng-zorro-antd/empty'
 import { NzFormModule } from 'ng-zorro-antd/form'
@@ -27,6 +28,7 @@ import { ScreensListComponent } from './components/screens-list/screens-list.com
 const angularModules = [
   CommonModule,
   FormsModule,
+  ReactiveFormsModule,
   CdkTreeModule,
 ]
 
@@ -34,6 +36,7 @@ const nzModules = [
   IconsProviderModule,
   NzButtonModule,
   NzCardModule,
+  NzCheckboxModule,
   NzDividerModule,
   NzEmptyModule,
   NzFormModule,
