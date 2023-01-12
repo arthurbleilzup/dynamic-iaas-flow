@@ -9,7 +9,7 @@
             <ng-container *ngSwitchCase="'text'">
               <nz-form-label [nzFor]="p.valueProp">{{ p.text }}</nz-form-label>
               <nz-form-control>
-                <input nz-input [name]="p.valueProp" type="text" [formControlName]="p.valueProp">
+                <input nz-input type="text" [formControlName]="p.valueProp">
               </nz-form-control>
             </ng-container>
             <ng-container *ngSwitchCase="'checkbox'">

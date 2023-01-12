@@ -21,9 +21,18 @@ export class ComponentPropertiesComponent {
       }
 
       let group = {}
-      this._selectedComponent?.info.properties?.map(p => ({
-        [p.valueProp]: [defaultTypeValue[p.type], p.required ? [Validators.required] : []],
-      })).forEach(control => {
+      this._selectedComponent?.info.properties?.map(p => {
+        const propValue = this._selectedComponent?.properties
+          ? this._selectedComponent?.properties[p.valueProp]
+          : defaultTypeValue[p.valueProp]
+
+        return {
+          [p.valueProp]: [
+            propValue,
+            p.required ? [Validators.required] : []
+          ]
+        }
+      }).forEach(control => {
         group = {
           ...group,
           ...control,
@@ -31,8 +40,6 @@ export class ComponentPropertiesComponent {
       })
 
       this.propertiesForm = this.formBuilder.group(group)
-
-      console.log(this.propertiesForm)
     }
   }
 

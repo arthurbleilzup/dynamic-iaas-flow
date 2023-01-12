@@ -50,19 +50,15 @@
       </ul>
     </nz-sider>
     <nz-content class="app-content">
-      <nz-breadcrumb>
-        <nz-breadcrumb-item>
-          <span nz-icon nzType="home"></span>
-        </nz-breadcrumb-item>
-        <nz-breadcrumb-item>
-          <a>
-            <span nz-icon nzType="idcard"></span>
-            <span>Tenant</span>
-          </a>
-        </nz-breadcrumb-item>
-        <nz-breadcrumb-item>Builder</nz-breadcrumb-item>
-      </nz-breadcrumb>
-      <h1 nz-typography>Builder</h1>
+      <ng-container *ngIf="currentPageInfo">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item *ngFor="let item of currentPageInfo.breadcrumbs">
+            <span *ngIf="item.icon" nz-icon [nzType]="item.icon"></span>
+            <span *ngIf="item.text">{{ item.text }}</span>
+          </nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <h1 nz-typography>{{ currentPageInfo.title }}</h1>
+      </ng-container>
       <nz-layout class="app-content-wrapper">
         <router-outlet></router-outlet>
       </nz-layout>
