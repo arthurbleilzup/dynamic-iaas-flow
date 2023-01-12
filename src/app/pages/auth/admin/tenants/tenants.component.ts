@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from '../../shared/services/data/data.service'
 
 @Component({
   selector: 'app-tenants',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./tenants.component.scss']
 })
 export class TenantsComponent {
-
+  constructor(public dataService: DataService) {}
 }
