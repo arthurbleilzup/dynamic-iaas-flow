@@ -14,7 +14,7 @@ interface PageInfo {
 }
 
 interface PageInfoMap {
-  [key: string]: PageInfo,
+  [key: string]: PageInfo | null | undefined,
 }
 
 @Component({
@@ -55,7 +55,7 @@ export class AuthComponent {
       title: 'Tenant Data',
       breadcrumbs: [
         { icon: 'home' },
-        { icon: 'idcard', text: 'Tenant' },
+        { icon: 'idcard', text: this.selectedTenant?.name ?? 'Current Tenant' },
         { text: 'Settings' },
         { text: 'Tenant Data' },
       ],
@@ -68,12 +68,7 @@ export class AuthComponent {
         { text: 'Builder' },
       ],
     },
-    '/auth/home': {
-      title: 'Home',
-      breadcrumbs: [
-        { icon: 'home', text: 'Home' },
-      ],
-    },
+    '/auth/home': null,
   }
 
   constructor(private router: Router, public dataService: DataService) {

@@ -3,7 +3,7 @@
     <div class="logo-tenant-wrapper">
       <span nz-icon nzType="build" nzTheme="twotone"></span>
       <span>IaaS Flow Builder</span>
-      <span nz-typography nzType="secondary" class="tenant-label">Tenant:</span>
+      <span nz-typography nzType="secondary" class="tenant-label">Current Tenant:</span>
       <nz-select nzShowSearch
                  class="tenant-select"
                  nzPlaceHolder="Select a tenant"
@@ -30,7 +30,7 @@
           <span nz-icon nzType="home"></span>
           <span>Home</span>
         </li>
-        <li nz-submenu nzTitle="Tenant" nzIcon="idcard" nzOpen class="app-side-sub-menu">
+        <li nz-submenu [nzTitle]="selectedTenant?.name || 'Tenant'" nzIcon="idcard" nzOpen class="app-side-sub-menu">
           <ul class="app-side-sub-menu-list">
             <li nz-menu-item routerLink="/auth/builder" routerLinkActive #builder="routerLinkActive" [nzSelected]="builder.isActive">Builder</li>
             <li nz-menu-group nzTitle="Settings">
