@@ -1,5 +1,6 @@
-import { Component } from '@angular/core'
+import { Component, OnDestroy } from '@angular/core'
 import { Event, NavigationEnd, Router } from '@angular/router'
+import { Subscription } from 'rxjs'
 import { Tenant } from 'src/app/models/tenant'
 import { DataService } from './shared/services/data/data.service'
 
@@ -22,9 +23,10 @@ interface PageInfoMap {
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss']
 })
-export class AuthComponent {
+export class AuthComponent implements OnDestroy {
   public selectedTenant: Tenant | null | undefined = null
   public currentPageInfo: PageInfo | null | undefined = null
+  private routesSubscription: Subscription
   private urlsMaps: PageInfoMap = {
     '/auth/admin/tenants': {
       title: 'Tenants',
@@ -73,10 +75,14 @@ export class AuthComponent {
 
   constructor(private router: Router, public dataService: DataService) {
     this.selectedTenant = dataService.tenants.find(t => t.id === this.dataService.currentTenantData.tenantId)
-    this.router.events.subscribe((event: Event) => {
+    this.routesSubscription = this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         this.currentPageInfo = this.urlsMaps[event.url]
       }
     })
+  }
+
+  public ngOnDestroy(): void {
+    this.routesSubscription.unsubscribe()
   }
 }

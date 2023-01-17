@@ -1,1 +1,70 @@
-<p>theme works!</p>
+<section class="theme-wrapper">
+  <nz-card nzTitle="Global Colors">
+    <section class="colors-wrapper">
+      <div class="color-item">
+        <ngx-colors ngx-colors-trigger [(ngModel)]="currentSettings.colors.header" ></ngx-colors>
+        <span nz-typography class="color-label">Header</span>
+      </div>
+      <div class="color-item">
+        <ngx-colors ngx-colors-trigger [(ngModel)]="currentSettings.colors.body"></ngx-colors>
+        <span nz-typography class="color-label">Body</span>
+      </div>
+      <div class="color-item">
+        <ngx-colors ngx-colors-trigger [(ngModel)]="currentSettings.colors.primary"></ngx-colors>
+        <span nz-typography class="color-label">Primary</span>
+      </div>
+      <div class="color-item">
+        <ngx-colors ngx-colors-trigger [(ngModel)]="currentSettings.colors.accent"></ngx-colors>
+        <span nz-typography class="color-label">Accent</span>
+      </div>
+      <div class="color-item">
+        <ngx-colors ngx-colors-trigger [(ngModel)]="currentSettings.colors.text"></ngx-colors>
+        <span nz-typography class="color-label">Texts</span>
+      </div>
+      <div class="color-item">
+        <ngx-colors ngx-colors-trigger [(ngModel)]="currentSettings.colors.title"></ngx-colors>
+        <span nz-typography class="color-label">Titles</span>
+      </div>
+      <div class="color-item">
+        <ngx-colors ngx-colors-trigger [(ngModel)]="currentSettings.colors.subtitle"></ngx-colors>
+        <span nz-typography class="color-label">Subtitles</span>
+      </div>
+    </section>
+  </nz-card>
+  <nz-card nzTitle="Inputs Colors">
+    <section class="colors-wrapper">
+      <div class="color-item">
+        <ngx-colors ngx-colors-trigger [(ngModel)]="currentSettings.colors.input.background"></ngx-colors>
+        <span nz-typography class="color-label">Background</span>
+      </div>
+      <div class="color-item">
+        <ngx-colors ngx-colors-trigger [(ngModel)]="currentSettings.colors.input.labelBorder"></ngx-colors>
+        <span nz-typography class="color-label">Label-Border</span>
+      </div>
+      <div class="color-item">
+        <ngx-colors ngx-colors-trigger [(ngModel)]="currentSettings.colors.input.text"></ngx-colors>
+        <span nz-typography class="color-label">Text</span>
+      </div>
+      <div class="color-item">
+        <ngx-colors ngx-colors-trigger [(ngModel)]="currentSettings.colors.input.hover.background"></ngx-colors>
+        <span nz-typography class="color-label">Hover: Background</span>
+      </div>
+      <div class="color-item">
+        <ngx-colors ngx-colors-trigger [(ngModel)]="currentSettings.colors.input.hover.text"></ngx-colors>
+        <span nz-typography class="color-label">Hover: Text</span>
+      </div>
+    </section>
+  </nz-card>
+  <nz-card nzTitle="Cards Colors">
+    <section class="colors-wrapper">
+      <div class="color-item">
+        <ngx-colors ngx-colors-trigger [(ngModel)]="currentSettings.colors.card.background"></ngx-colors>
+        <span nz-typography class="color-label">Background</span>
+      </div>
+      <div class="color-item">
+        <ngx-colors ngx-colors-trigger [(ngModel)]="currentSettings.colors.card.border"></ngx-colors>
+        <span nz-typography class="color-label">Border</span>
+      </div>
+    </section>
+  </nz-card>
+</section>

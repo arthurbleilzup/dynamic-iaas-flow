@@ -14,6 +14,8 @@ import { NzSelectModule } from 'ng-zorro-antd/select'
 import { NzSpaceModule } from 'ng-zorro-antd/space'
 import { NzTypographyModule } from 'ng-zorro-antd/typography'
 
+import { NgxColorsModule } from 'ngx-colors'
+
 import { AuthRoutingModule } from './auth-routing.module'
 import { HomeComponent } from './home/home.component'
 import { TenantDataComponent } from './tenant-data/tenant-data.component'
@@ -62,6 +64,7 @@ const authModules = [
     ...angularModules,
     ...nzModules,
     ...authModules,
+    NgxColorsModule,
   ],
   declarations: components,
   exports: components,
