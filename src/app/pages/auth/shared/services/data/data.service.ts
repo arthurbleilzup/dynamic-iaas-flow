@@ -25,5 +25,6 @@ export class DataService {
 
   public setCurrentTenantData(tenant: Tenant): void {
     this.currentTenantData = this.tenantsData.find(t => t.tenantId === tenant.id)!
+    this.onTenantChange.emit(this.currentTenantData.tenantId)
   }
 }

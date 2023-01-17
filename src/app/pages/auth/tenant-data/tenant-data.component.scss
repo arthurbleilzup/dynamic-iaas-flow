@@ -1,0 +1,10 @@
+.wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 24px;
+
+  .tenant-logo-image {
+    object-fit: contain;
+  }
+}

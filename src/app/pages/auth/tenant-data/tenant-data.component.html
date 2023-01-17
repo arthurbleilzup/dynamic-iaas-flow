@@ -1,1 +1,29 @@
-<p>tenant-data works!</p>
+<nz-card>
+  <section class="wrapper">
+    <div>
+      <img nz-image
+           width="150px"
+           height="150px"
+           class="tenant-logo-image"
+           alt="{{ tenantDataForm.controls['name'] }} logo image"
+           [nzSrc]="tenantDataForm.controls['logoUrl'].value"
+           [nzFallback]="fallbackImage" />
+    </div>
+    <div>
+      <form nz-form nzLayout="vertical" [formGroup]="tenantDataForm">
+        <nz-form-item>
+          <nz-form-label nzFor="logoUrl">Logo URL</nz-form-label>
+          <nz-form-control>
+            <input nz-input name="logoUrl" type="text" formControlName="logoUrl">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzFor="name">Tenant Name</nz-form-label>
+          <nz-form-control>
+            <input nz-input name="name" type="text" formControlName="name">
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </div>
+  </section>
+</nz-card>
