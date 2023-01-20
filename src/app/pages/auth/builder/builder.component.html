@@ -10,7 +10,7 @@
     <ng-container *ngIf="currentScreen">
       <nz-layout class="builder-screens-content-layout">
         <nz-content class="builder-fields">
-          <nz-card nzTitle="Editing: {{ currentScreen.title }}" class="full-width" [nzExtra]="editExtra" [classList]="['edit-card']">
+          <nz-card nzTitle="Editing: {{ currentScreen.title }}" class="full-width" [classList]="['edit-card']">
             <section class="fields-wrapper">
               <div class="current-screen-component">
                 <ng-container *ngIf="currentScreen && currentScreen.components && currentScreen.components.length">
@@ -31,23 +31,36 @@
               </div>
             </section>
           </nz-card>
-          <ng-template #editExtra>
-            <!-- <nz-space nzSize="small">
-            <button *nzSpaceItem nz-button nzType="default" nzSize="small" nzShape="round">
-              Cancel
-            </button>
-            <button *nzSpaceItem nz-button nzType="primary" nzSize="small" nzShape="round">
-              <span nz-icon nzType="save"></span>
-              Save
-            </button>
-          </nz-space> -->
-          </ng-template>
         </nz-content>
         <nz-sider nzWidth="400px" class="builder-smartphone">
           <div class="smartphone-frame">
             <i class="speaker"></i>
             <b class="camera"></b>
-            <div class="current-screen-content">
+            <div class="current-screen-content" *ngIf="dataService.currentTenantData">
+              <ng-container *ngIf="currentScreen">
+                <div class="header-spacer"></div>
+                <div class="header">
+                  <img [src]="dataService.currentTenantData.settings.tenant.logoUrl" [alt]="dataService.currentTenantData.settings.tenant.name">
+                </div>
+                <div class="stepper">
+                  <button mat-icon-button aria-label="Back">
+                    <mat-icon class="back-button">arrow_back_ios</mat-icon>
+                  </button>
+                  <div class="step-info">
+                    <span class="title">{{ currentScreen.title }}</span>
+                    <span class="info">passo {{ currentScreen.stepNumber + 1 }} de {{ dataService.currentTenantData.screens.length }}</span>
+                  </div>
+                  <button mat-icon-button aria-label="Info">
+                    <mat-icon class="info-button">info</mat-icon>
+                  </button>
+                </div>
+                <div class="dynamic-content">
+                  <ng-template *ngFor="let component of currentScreen.components" [appComponentLoader]="component"></ng-template>
+                </div>
+                <div class="operations">
+                  <!-- <app-ok *ngFor="let operation of currentScreen.operations" [text]="operation.title"></app-ok> -->
+                </div>
+              </ng-container>
             </div>
           </div>
           <span nz-typography nzType="secondary" class="preview-description">Preview: {{ currentScreen.title }}</span>

@@ -19,11 +19,35 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip'
 import { NzTreeModule } from 'ng-zorro-antd/tree'
 import { NzTypographyModule } from 'ng-zorro-antd/typography'
 
+import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatDividerModule } from '@angular/material/divider'
+import { MatIconModule } from '@angular/material/icon'
+import { MatButtonModule } from '@angular/material/button'
+import { MatListModule } from '@angular/material/list'
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatCardModule } from '@angular/material/card'
+import { MatInputModule } from '@angular/material/input'
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatGridListModule } from '@angular/material/grid-list'
+import { MatSelectModule }  from '@angular/material/select'
+
 import { BuilderComponent } from './builder.component'
 import { BuilderRoutingModule } from './builder-routing.module'
 import { ComponentPropertiesComponent } from './components/component-properties/component-properties.component'
 import { ComponentsTreeComponent } from './components/components-tree/components-tree.component'
 import { ScreensListComponent } from './components/screens-list/screens-list.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { CardComponent } from './components/dynamic/components/card/card.component'
+import { CheckboxComponent } from './components/dynamic/components/checkbox/checkbox.component'
+import { ColumnComponent } from './components/dynamic/components/column/column.component'
+import { InfoComponent } from './components/dynamic/components/info/info.component'
+import { InputComponent } from './components/dynamic/components/input/input.component'
+import { LabelComponent } from './components/dynamic/components/label/label.component'
+import { RowComponent } from './components/dynamic/components/row/row.component'
+import { TitleComponent } from './components/dynamic/components/title/title.component'
+import { ColorChangerService } from './components/dynamic/services/color-changer/color-changer.service'
+import { ComponentLoaderDirective } from './components/dynamic/directives/component-loader/component-loader.directive'
 
 const angularModules = [
   CommonModule,
@@ -61,13 +85,47 @@ const builderComponents = [
   ScreensListComponent,
 ]
 
+const dynamicComponents = [
+  CardComponent,
+  CheckboxComponent,
+  ColumnComponent,
+  ComponentLoaderDirective,
+  InfoComponent,
+  InputComponent,
+  LabelComponent,
+  RowComponent,
+  TitleComponent,
+]
+
+const materialModules = [
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatToolbarModule,
+]
+
 @NgModule({
-  declarations: builderComponents,
+  declarations: [
+    ...builderComponents,
+    ...dynamicComponents,
+  ],
   exports: builderComponents,
   imports: [
     ...angularModules,
     ...builderModules,
+    ...materialModules,
     ...nzModules,
+  ],
+  providers: [
+    ColorChangerService,
   ],
 })
 export class BuilderModule { }

@@ -1,0 +1,56 @@
+.checkbox-wrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+
+  ::ng-deep .flow-checkbox {
+    padding: 8px 0;
+
+    .mdc-form-field {
+      color: var(--flow-text);
+
+      label {
+        padding-left: 12px;
+        font-size: 16px;
+      }
+
+      .mdc-checkbox {
+        .mdc-checkbox__background {
+          top: 0 !important;
+          left: 0 !important;
+          right: unset !important;
+          bottom: unset !important;
+          border-color: var(--flow-primary) !important;
+
+          .mdc-checkbox__mixedmark {
+            border-color: var(--flow-primary);
+          }
+        }
+
+        .mdc-checkbox__native-control {
+          top: -50% !important;
+          left: -50% !important;
+          right: unset !important;
+          bottom: unset !important;
+
+          &.mdc-checkbox--selected {
+            &~.mdc-checkbox__background {
+              border-color: var(--flow-accent) !important;
+              background-color: var(--flow-accent) !important;
+
+              .mdc-checkbox__mixedmark {
+                border-color: var(--flow-accent);
+              }
+
+              .mdc-checkbox__checkmark {
+                color: var(--flow-accent-text) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

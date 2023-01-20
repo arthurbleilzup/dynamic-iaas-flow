@@ -17,11 +17,14 @@ export class DataService {
     (T3 as unknown as JsonUtils.Default<Tenant.Data>).default,
     (T4 as unknown as JsonUtils.Default<Tenant.Data>).default,
   ]
-
   public tenants: Tenant[] = (Ts as unknown as JsonUtils.Data<Tenant[]>).default.data
   public currentTenantData: Tenant.Data = this.tenantsData[0]
-
   public onTenantChange: EventEmitter<string> = new EventEmitter<string>()
+
+  constructor() {
+    this.tenants = (Ts as unknown as JsonUtils.Data<Tenant[]>).default.data
+    this.currentTenantData = this.tenantsData[0]
+  }
 
   public setCurrentTenantData(tenant: Tenant): void {
     this.currentTenantData = this.tenantsData.find(t => t.tenantId === tenant.id)!

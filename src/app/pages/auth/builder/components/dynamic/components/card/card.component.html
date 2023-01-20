@@ -1,0 +1,5 @@
+<div class="card">
+  <ng-container *ngIf="children && children.length">
+    <ng-template *ngFor="let component of children" [appComponentLoader]="component"></ng-template>
+  </ng-container>
+</div>
