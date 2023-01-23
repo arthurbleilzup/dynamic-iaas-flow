@@ -1,22 +1,16 @@
 <nz-space nzDirection="vertical" nzSize="middle" class="components-spacer">
-  <nz-input-group *nzSpaceItem [nzSuffix]="suffixIcon">
-    <input type="text" nz-input placeholder="Search a component" [(ngModel)]="searchComponentValue" />
-  </nz-input-group>
-  <ng-template #suffixIcon>
-    <span nz-icon nzType="search"></span>
-  </ng-template>
   <nz-tree *nzSpaceItem nzBlockNode (nzClick)="activeNode($event)" [nzData]="componentNodes" [nzTreeTemplate]="componentNodeTemplate"></nz-tree>
   <ng-template #componentNodeTemplate let-node let-origin="origin">
     <span class="component-node">
       <nz-space nzSize="small">
         <span *nzSpaceItem nz-icon [nzType]="node.icon"></span>
         <span *nzSpaceItem nz-typography class="node-title">{{ node.title }}</span>
-        <ng-container *ngIf="origin.component.mainValue">
-          <p *nzSpaceItem nz-typography nzType="secondary" class="main-value">{{ origin.component.mainValue }}</p>
+        <ng-container *ngIf="origin.value">
+          <p *nzSpaceItem nz-typography nzType="secondary" class="main-value">{{ origin.value }}</p>
         </ng-container>
       </nz-space>
       <nz-space nzSize="small" class="component-node-operations">
-        <ng-container *ngIf="origin.component.canHaveChildren">
+        <ng-container *ngIf="origin.canHaveChildren">
           <button *nzSpaceItem nz-button nzType="link" nzSize="small" nz-tooltip nzTooltipTitle="Add children">
             <span nz-icon nzType="plus-square"></span>
           </button>

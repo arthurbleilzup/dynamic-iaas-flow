@@ -2,18 +2,20 @@
   <div *ngIf="componentHasProperties">
     <h5 nz-typography>{{ selectedComponent.info.title }} Properties</h5>
     <br>
-    <ng-container *ngIf="selectedComponent && selectedComponent.properties && propertiesForm">
+    <ng-container *ngIf="selectedComponent && selectedComponent.component.properties && propertiesForm">
       <form nz-form nzLayout="vertical" [formGroup]="propertiesForm">
         <nz-form-item *ngFor="let p of (selectedComponent.info.properties ?? [])">
           <ng-container [ngSwitch]="p.type">
             <ng-container *ngSwitchCase="'text'">
               <nz-form-label [nzFor]="p.valueProp">{{ p.text }}</nz-form-label>
               <nz-form-control>
-                <input nz-input type="text" [formControlName]="p.valueProp">
+                <!-- the approach used here is only for the POC purposes -->
+                <input nz-input type="text" [formControlName]="p.valueProp" (change)="onValueChange(p.valueProp)">
               </nz-form-control>
             </ng-container>
             <ng-container *ngSwitchCase="'checkbox'">
-              <label nz-checkbox [formControlName]="p.valueProp">
+              <!-- the approach used here is only for the POC purposes -->
+              <label nz-checkbox [formControlName]="p.valueProp" (change)="onValueChange(p.valueProp)">
                 <span nz-typography>{{ p.text }}</span>
               </label>
             </ng-container>
