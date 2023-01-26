@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Screen } from 'src/app/models/screen'
 
 interface ScreenItem {
@@ -12,11 +13,15 @@ interface ScreenItem {
   styleUrls: ['./screens-list.component.scss']
 })
 export class ScreensListComponent {
+  private _screens: Screen[] = []
+  public showAddScreenModal: boolean = false
   public screensList: ScreenItem[] = []
+  public addScreenForm: FormGroup<{ screenName: FormControl<string | null> }>
 
   @Output() public screenSelectedChanged: EventEmitter<Screen> = new EventEmitter<Screen>()
 
   @Input() public set screens(screens: Screen[]) {
+    this._screens = screens
     this.screensList = screens.map(screen => ({
       screen,
       selected: false,
@@ -28,6 +33,12 @@ export class ScreensListComponent {
     }
   }
 
+  constructor(private formBuilder: FormBuilder) {
+    this.addScreenForm = this.formBuilder.group({
+      screenName: ['', [Validators.required]],
+    })
+  }
+
   public selectScreen(item: ScreenItem): void {
     const previous = this.screensList.find(s => s.selected)
     if (previous) {
@@ -36,5 +47,29 @@ export class ScreensListComponent {
     item.selected = true
 
     this.screenSelectedChanged.emit(item.screen)
+  }
+
+  public showAddScreen(): void {
+    this.showAddScreenModal = true
+  }
+
+  public addScreen(): void {
+    this._screens.push({
+      stepNumber: this._screens.length + 2,
+      title: this.addScreenForm.controls.screenName.value!,
+      components: [],
+      operations: [],
+    })
+    this.screens = this._screens
+    this.resetCleanAddScreenForm()
+  }
+
+  public cancelAddScreen(): void {
+    this.resetCleanAddScreenForm()
+  }
+
+  private resetCleanAddScreenForm() {
+    this.addScreenForm.reset()
+    this.showAddScreenModal = false
   }
 }

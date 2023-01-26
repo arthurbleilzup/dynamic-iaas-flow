@@ -13,6 +13,7 @@ import { NzFormModule } from 'ng-zorro-antd/form'
 import { NzInputModule } from 'ng-zorro-antd/input'
 import { NzLayoutModule } from 'ng-zorro-antd/layout'
 import { NzListModule } from 'ng-zorro-antd/list'
+import { NzModalModule } from 'ng-zorro-antd/modal'
 import { NzSkeletonModule } from 'ng-zorro-antd/skeleton'
 import { NzSpaceModule } from 'ng-zorro-antd/space'
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip'
@@ -67,6 +68,7 @@ const nzModules = [
   NzInputModule,
   NzLayoutModule,
   NzListModule,
+  NzModalModule,
   NzSkeletonModule,
   NzSpaceModule,
   NzToolTipModule,

@@ -18,8 +18,25 @@
   </nz-list>
 </nz-card>
 <ng-template #screensExtra>
-  <button nz-button nzType="link" nzSize="small" nzShape="round">
+  <button nz-button nzType="link" nzSize="small" nzShape="round" (click)="showAddScreen()">
     <span nz-icon nzType="plus"></span>
     Add screen
   </button>
 </ng-template>
+<nz-modal [(nzVisible)]="showAddScreenModal" nzTitle="Add New Screen" (nzOnCancel)="cancelAddScreen()" (nzOnOk)="addScreen()">
+  <ng-container *nzModalContent>
+    <form nz-form [nzLayout]="'vertical'" [formGroup]="addScreenForm">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input the screen name!">
+          <nz-input-group nzPrefixIcon="user">
+            <input formControlName="screenName" nz-input placeholder="Screen Name" required="true" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </ng-container>
+  <div *nzModalFooter>
+    <button nz-button nzType="default" (click)="cancelAddScreen()">Cancel</button>
+    <button nz-button nzType="primary" (click)="addScreen()" [disabled]="addScreenForm.invalid">Add Screen</button>
+  </div>
+</nz-modal>
